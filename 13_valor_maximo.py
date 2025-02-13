@@ -11,3 +11,33 @@ La respuesta debe ser:
 '''
 
 # SOLUCION
+
+import os
+os.system ("cls")
+
+numeros= input("Introduzca los números que desee separados por una coma --> ")
+numeros=numeros.replace(" ","")
+lista_numeros= numeros.split(",")
+
+lista=[]
+for element in lista_numeros:
+    if lista:
+        for i in range(len(lista)):
+            if element < lista[i]:
+                lista.append(element)
+                print(28,lista)
+                numero_menor=lista[i+1]
+                numero_mayor=lista[i]
+                lista[i]=numero_menor
+                lista[i+1]=numero_mayor
+                print(33,lista)
+                break  
+            else:
+                lista.append(element)
+                print(37,lista)
+                break     
+    else:
+        lista.append(element)
+        print(41,lista)
+    
+print(43,lista)

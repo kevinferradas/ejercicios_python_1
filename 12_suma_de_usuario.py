@@ -10,4 +10,16 @@ Por ejemplo, si escribe
 La respuesta debe ser:
 "El resultado de la suma es 10" 
 '''
-# SOLUCION
+import os
+os.system ("cls")
+
+numeros= input("Introduzca los números que desee separados por una coma --> ")
+numeros=numeros.replace(" ","")
+lista_numeros= numeros.split(",")
+suma=0
+for elements in lista_numeros:
+    suma += int(elements)
+
+print(f"El resultado de la suma es {suma}.")
+
+    
