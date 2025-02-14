@@ -7,30 +7,45 @@ Por ejemplo, si escribe: "hoy es domingo"
 La respuesta debe ser: "domingo es hoy"
 '''
 
+# SOLUCION
+
 import os
 os.system ("cls")
 
-texto = input("Escriba un texto -> ")
+# Pedimos al usuario un texto.
+texto= input("Introduzca un texto --> ")
+
+# Eliminamos los espacios y creamos una lista cuyos elementos son las palabras del texto.
+lista_palabras=texto.split(None)
+
+
+# Creamos una lista , inicialmente vacía, que almacenará las palabras en orden alfabético.
 lista_ordenada=[]
-lista_palabras = texto.split(None)
-print(lista_palabras)
 
-for palabra in lista_palabras:
+# Iteramos sobre los elementos de la lista original.
+for element in lista_palabras:
+
+    # Si lista ordenada tiene al menos un elemento
     if lista_ordenada:
-        for item in lista_ordenada: 
-            if palabra > item:
-                lista_ordenada.append(palabra)
-                break
-                
-            else:
-                lista_ordenada.append(palabra)
-                lista_ordenada_0 = lista_ordenada[0]
-                lista_ordenada_1 = lista_ordenada[-1]
-                lista_ordenada[0]= lista_ordenada_1
-                lista_ordenada[-1]= lista_ordenada_0
-                break
-        
-    else:
-        lista_ordenada.append(palabra)
 
-print(lista_ordenada)
+        for i in range(len(lista_ordenada)):
+
+            # ordenamos de manera creciente
+            if element < lista_ordenada[i]:
+                lista_ordenada.insert(i,element)   
+                # print(34,lista)
+                break  
+            
+        else: # la palabra "mayor", alfabéticamente hablando, toma la última posición
+            lista_ordenada.append(element)
+            # print(38,lista)
+
+    # Si lista_ordenada aún no tiene elementos                 
+    else:
+        lista_ordenada.append(element) # agregamos la primera palabra a la lista ordenada.
+        # print(42,lista)
+    
+# print(43,lista)
+
+texto_ordenado = " ".join(lista_ordenada)
+print(texto_ordenado)
