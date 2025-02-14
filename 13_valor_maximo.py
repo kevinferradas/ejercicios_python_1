@@ -15,29 +15,42 @@ La respuesta debe ser:
 import os
 os.system ("cls")
 
-numeros= input("Introduzca los números que desee separados por una coma --> ")
-numeros=numeros.replace(" ","")
-lista_numeros= numeros.split(",")
+# Pedimos al usuario un conjunto de números
+numeros= input("Introduzca los números que desee, separados por una coma --> ")
 
-lista=[]
+# Eliminamos los espacios
+numeros=numeros.replace(" ","")
+
+# Creamos una lista con los números
+lista_numeros= numeros.split(",")
+# print(lista_numeros)
+
+# Creamos una lista , inicialmente vacía, que almacenará los números en forma creciente.
+lista_ordenada=[]
+
+# Iteramos sobre los elementos de la lista original.
 for element in lista_numeros:
-    if lista:
-        for i in range(len(lista)):
-            if element < lista[i]:
-                lista.append(element)
-                print(28,lista)
-                numero_menor=lista[i+1]
-                numero_mayor=lista[i]
-                lista[i]=numero_menor
-                lista[i+1]=numero_mayor
-                print(33,lista)
+
+    # Si lista_ordenada tiene al menos un elemento
+    if lista_ordenada:
+
+        for i in range(len(lista_ordenada)):
+
+            # ordenamos de manera creciente
+            if float(element) < float(lista_ordenada[i]):
+                lista_ordenada.insert(i,element)   
+                # print(34,lista)
                 break  
-            else:
-                lista.append(element)
-                print(37,lista)
-                break     
+            
+        else: # el valor máximo tomará la última posición de la lista
+            lista_ordenada.append(element)
+            # print(38,lista)
+
+    # Si lista_ordenada aún no tiene elementos                 
     else:
-        lista.append(element)
-        print(41,lista)
+        lista_ordenada.append(element) # agregamos el primer número a lista_ordenada
+        # print(42,lista)
     
-print(43,lista)
+# print(43,lista)
+
+print(f"El valor máximo es {lista_ordenada[-1]}.")
